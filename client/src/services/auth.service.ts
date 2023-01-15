@@ -1,9 +1,12 @@
-import axios from 'axios'
+import axios from '../utils/axios.utils'
 
 export const loginRequest = async (email: String, password: String) => {
-  const url = import.meta.env.VITE_API_URL
-  return axios.post(`${url}/login`, {
+  return axios.post('/login', {
     email,
     password,
   })
+}
+
+export const profileRequest = async () => {
+  return axios.get('/profile')
 }
