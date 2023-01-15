@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "ts-node-dev index.ts"
+    "dev": "ts-node-dev --respawn --transpile-only index.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",

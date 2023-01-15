@@ -4,9 +4,9 @@ import jwt from 'jsonwebtoken'
 export const LoginController = (request: Request, response: Response) => {
   const token = jwt.sign(
     {
-      test: 'payload',
+      payload: 'payload',
     },
-    'secretKey',
+    'secretKey', // Hide it...
     {
       expiresIn: 60 * 60 * 24, // 24H
     }
