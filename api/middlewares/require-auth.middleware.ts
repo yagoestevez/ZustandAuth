@@ -7,9 +7,7 @@ const RequireAuth = (
   next: NextFunction
 ): Response | void => {
   const authHeaders = request.headers.authorization
-  const unauthorizedJson = {
-    message: 'Unauthorized',
-  }
+  const unauthorizedJson = { message: 'Unauthorized' }
 
   if (!authHeaders) {
     return response.status(401).json(unauthorizedJson)
@@ -21,7 +19,7 @@ const RequireAuth = (
     return response.status(401).json(unauthorizedJson)
   }
 
-  jwt.verify(token, 'secretKey', (error, payload) => {
+  jwt.verify(token, process.env.JWT_SECRET || '', (error, payload) => {
     if (error) {
       return response.status(401).json(unauthorizedJson)
     }
