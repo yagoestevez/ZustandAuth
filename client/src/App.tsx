@@ -1,11 +1,4 @@
-import LoginPage from './pages/LoginPage'
+import { RouterProvider } from 'react-router-dom'
+import routes from './router/main.routes'
 
-export default function App() {
-  return (
-    <div>
-      <h1>Zustand Auth Client</h1>
-
-      <LoginPage />
-    </div>
-  )
-}
+export const App = () => <RouterProvider router={routes} />

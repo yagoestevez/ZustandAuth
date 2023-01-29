@@ -9,6 +9,7 @@ type State = {
 type Actions = {
   setToken: (token: String) => void
   setProfile: (token: String) => void
+  logout: () => void
 }
 
 export const useAuthStore = create(
@@ -24,9 +25,14 @@ export const useAuthStore = create(
         set((state) => ({
           profile,
         })),
+      logout: () =>
+        set((state) => ({
+          token: '',
+          profile: '',
+        })),
     }),
     {
-      name: 'auth',
+      name: 'zustand-auth',
     }
   )
 )

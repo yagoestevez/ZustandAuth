@@ -7,9 +7,8 @@ const authApi = axios.create({
 })
 
 authApi.interceptors.request.use((conf) => {
-  const token = useAuthStore.getState().token
   conf.headers = {
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer ${useAuthStore.getState().token || ''}`,
   }
   return conf
 })
